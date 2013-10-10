@@ -13,9 +13,9 @@ namespace ScriptLinkCore
         /// Used set required fields
         /// </summary>
         /// <param name="optionObject"></param>
-        /// <param name="field1"></param>
+        /// <param name="fieldNumber"></param>
         /// <returns></returns>
-        public static OptionObject SetRequiredFields(OptionObject optionObject, string field1)
+        public static OptionObject SetRequiredField(OptionObject optionObject, string fieldNumber)
         {
             OptionObject returnOptionObject = optionObject;
             Boolean updated = false;
@@ -24,7 +24,7 @@ namespace ScriptLinkCore
             {
                 foreach (var currentField in form.CurrentRow.Fields)
                 {
-                    if (currentField.FieldNumber == field1)
+                    if (currentField.FieldNumber == fieldNumber)
                     {
                         currentField.Required = "1";
                         updated = true;
