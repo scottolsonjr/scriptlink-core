@@ -25,7 +25,6 @@ namespace ScriptLinkMaster.Tests.TransformTests
             optionObject.ErrorCode = 2;
             optionObject.ErrorMesg = "2";
             optionObject.Facility = "3";
-            optionObject.Forms = new List<FormObject>();
             optionObject.OptionId = "4";
             optionObject.OptionStaffId = "5";
             optionObject.OptionUserId = "6";
@@ -41,7 +40,7 @@ namespace ScriptLinkMaster.Tests.TransformTests
             Assert.IsInstanceOf(typeof(CustomOptionObject), result);
         }
         [Test]
-        public void TransformToCustomOptionObject_NonNullOptionObject_PropertyValuesAreEqual()
+        public void TransformToCustomOptionObject_OptionObjectWithProperties_PropertyValuesAreEqual()
         {
             OptionObjectTransform transform = InitTransform();
             var optionObject = MockBasicOptionObject();
@@ -56,7 +55,7 @@ namespace ScriptLinkMaster.Tests.TransformTests
                 optionObject.OptionUserId,
                 optionObject.SystemCode,
                 optionObject.EpisodeNumber,
-                (ErrorCode)optionObject.ErrorCode
+                (ErrorCode)optionObject.ErrorCode,
             };
             var actual = new object[]
             {
@@ -68,17 +67,26 @@ namespace ScriptLinkMaster.Tests.TransformTests
                 result.OptionUserId,
                 result.SystemCode,
                 result.EpisodeNumber,
-                result.ErrorCode
+                result.ErrorCode,
             };
             Assert.AreEqual(expected, actual);
         }
         [Test]
-        public void TransformToCustomOptionObject_OptionObjectWithEmptyFormList_ReturnsCustomObjectWithEmptyFormList()
+        public void TransformToCustomOptionObject_OptionObjectWithEmptyFormList_ReturnsCustomObjectWithEmptyCustomFormList()
         {
             var optionObject = MockBasicOptionObject();
             var transform = InitTransform();
             var result = transform.TransformToCustomOptionObject(optionObject);
-            Assert.AreEqual(optionObject.Forms, result.Forms);
+            var expected = new List<object>();
+            Assert.AreEqual(expected, result.Forms);
+        }
+        [Test]
+        public void TransformToCustomOptionObject_OptionObjectWithEmptyFormList_ReturnsCustomObjectWithFormOfCustomType()
+        {
+            var optionObject = MockBasicOptionObject();
+            var transform = InitTransform();
+            var result = transform.TransformToCustomOptionObject(optionObject);
+            Assert.IsInstanceOf(typeof(List<CustomFormObject>), result.Forms);
         }
     }
 }

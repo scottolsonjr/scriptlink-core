@@ -24,11 +24,15 @@ namespace ScriptLinkMaster.Transform
             CustomOptionObject.SystemCode = optionObject.SystemCode;
             return CustomOptionObject;
         }
-        private ErrorCode ConvertToEnum(double p)
+        protected virtual ErrorCode ConvertToEnum(double ErrorCode)
         {
-            if (Enum.IsDefined(typeof(ErrorCode), (int)p))
-                return (ErrorCode)p;
+            if (IsErrorCodeValid((int)ErrorCode))
+                return (ErrorCode)ErrorCode;
             throw new ArgumentException("The error code is not valid");
+        }
+        protected virtual bool IsErrorCodeValid(int ErrorCode)
+        {
+            return Enum.IsDefined(typeof(ErrorCode), (int)ErrorCode);
         }
     }
 }

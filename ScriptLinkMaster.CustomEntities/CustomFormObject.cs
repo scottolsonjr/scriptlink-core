@@ -34,7 +34,7 @@ namespace ScriptLinkMaster.CustomEntities
         }
         protected virtual bool IsMultipleIteration()
         {
-            return (this.Rows.FirstOrDefault(r => r.RowType == RowType.Other) != null);
+            return this.Rows.Any(r => r.RowType == RowType.Other);
         }
         protected virtual CustomRowObject GetCurrentRow()
         {

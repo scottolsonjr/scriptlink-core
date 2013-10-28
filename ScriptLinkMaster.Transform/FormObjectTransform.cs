@@ -11,7 +11,14 @@ namespace ScriptLinkMaster.Transform
     {
         public CustomFormObject TransformToCustomFormObject(FormObject formObject)
         {
-            return new CustomFormObject();
+            var CustomFormObject = new CustomFormObject();
+            CustomFormObject.FormId = formObject.FormId;
+            CustomFormObject.Rows = new List<CustomRowObject>();
+            if (formObject.MultipleIteration)
+                CustomFormObject.Rows.Add(new CustomRowObject { RowType = RowType.Other });
+            if (formObject.CurrentRow != null)
+                CustomFormObject.Rows.Add(new CustomRowObject { RowType = RowType.Current });
+            return CustomFormObject;
         }
     }
 }
