@@ -83,7 +83,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CustomScriptLinkEntities\ScriptLinkMaster.CustomEntities.csproj">
+    <ProjectReference Include="..\ScriptLinkMaster.CustomEntities\ScriptLinkMaster.CustomEntities.csproj">
       <Project>{ea745418-11bc-46ec-b060-e458809bbd11}</Project>
       <Name>ScriptLinkMaster.CustomEntities</Name>
     </ProjectReference>

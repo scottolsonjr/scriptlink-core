@@ -127,7 +127,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ScriptLinkEntities\ScriptLinkMaster.Entities.csproj">
+    <ProjectReference Include="..\ScriptLinkMaster.CustomEntities\ScriptLinkMaster.CustomEntities.csproj">
+      <Project>{ea745418-11bc-46ec-b060-e458809bbd11}</Project>
+      <Name>ScriptLinkMaster.CustomEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ScriptLinkMaster.Entities\ScriptLinkMaster.Entities.csproj">
       <Project>{db2f72b3-6c93-438a-8438-2f181050c131}</Project>
       <Name>ScriptLinkMaster.Entities</Name>
     </ProjectReference>
