@@ -10,7 +10,7 @@ namespace ScriptLinkMaster.Transform
 {
     public class OptionObjectTransform
     {
-        public CustomOptionObject TransformToCustomObject(OptionObject optionObject)
+        public CustomOptionObject TransformToCustomOptionObject(OptionObject optionObject)
         {
             var CustomOptionObject = new CustomOptionObject();
             CustomOptionObject.EntityID = optionObject.EntityID;

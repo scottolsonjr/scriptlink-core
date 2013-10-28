@@ -11,9 +11,15 @@ namespace ScriptLinkMaster.CustomEntities
         public string ParentRowId { get; set; }
         public RowAction RowAction { get; set; }
         public string RowId { get; set; }
+        public RowType RowType { get; set; }
         public CustomRowObject()
         {
             this.Fields = new List<CustomFieldObject>();
         }
+    }
+    public enum RowType
+    {
+        Current = 0,
+        Other = 1
     }
 }

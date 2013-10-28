@@ -7,7 +7,7 @@ using NUnit.Framework;
 using ScriptLinkMaster.Entities;
 using ScriptLinkMaster.Transform;
 
-namespace ScriptLinkMaster.Tests
+namespace ScriptLinkMaster.Tests.TransformTests
 {
     [TestFixture]
     public class RowObjectTransformTests

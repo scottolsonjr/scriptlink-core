@@ -8,7 +8,7 @@ using ScriptLinkMaster.CustomEntities;
 using ScriptLinkMaster.Entities;
 using ScriptLinkMaster.Transform;
 
-namespace ScriptLinkMaster.Tests
+namespace ScriptLinkMaster.Tests.TransformTests
 {
     [TestFixture]
     public class OptionObjectTransformTests
@@ -33,19 +33,19 @@ namespace ScriptLinkMaster.Tests
             return optionObject;
         }
         [Test]
-        public void TransformToCustomObject_NonNullOptionObject_ReturnsCustomObject()
+        public void TransformToCustomOptionObject_NonNullOptionObject_ReturnsCustomOptionObject()
         {
             OptionObjectTransform transform = InitTransform();
             var optionObject = MockBasicOptionObject();
-            CustomOptionObject result = transform.TransformToCustomObject(optionObject);
+            CustomOptionObject result = transform.TransformToCustomOptionObject(optionObject);
             Assert.IsInstanceOf(typeof(CustomOptionObject), result);
         }
         [Test]
-        public void TransformToCustomObject_NonNullOptionObject_StringPropertiesValuesAreEqual()
+        public void TransformToCustomOptionObject_NonNullOptionObject_PropertyValuesAreEqual()
         {
             OptionObjectTransform transform = InitTransform();
             var optionObject = MockBasicOptionObject();
-            CustomOptionObject result = transform.TransformToCustomObject(optionObject);
+            CustomOptionObject result = transform.TransformToCustomOptionObject(optionObject);
             var expected = new object[]
             {
                 optionObject.EntityID,
@@ -73,11 +73,11 @@ namespace ScriptLinkMaster.Tests
             Assert.AreEqual(expected, actual);
         }
         [Test]
-        public void TransformToCustomObject_OptionObjectWithEmptyFormList_ReturnsCustomObjectWithEmptyFormList()
+        public void TransformToCustomOptionObject_OptionObjectWithEmptyFormList_ReturnsCustomObjectWithEmptyFormList()
         {
             var optionObject = MockBasicOptionObject();
             var transform = InitTransform();
-            var result = transform.TransformToCustomObject(optionObject);
+            var result = transform.TransformToCustomOptionObject(optionObject);
             Assert.AreEqual(optionObject.Forms, result.Forms);
         }
     }

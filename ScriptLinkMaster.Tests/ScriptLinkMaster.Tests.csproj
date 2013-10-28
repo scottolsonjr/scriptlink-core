@@ -73,9 +73,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OptionObjectTransformTests.cs" />
+    <Compile Include="TransformTests\FormObjectTransformTests.cs" />
+    <Compile Include="TransformTests\OptionObjectTransformTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RowObjectTransformTests.cs" />
+    <Compile Include="TransformTests\RowObjectTransformTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

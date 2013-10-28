@@ -11,14 +11,43 @@ namespace ScriptLinkMaster.CustomEntities
 
         public bool MultipleIteration
         {
-            get { return (this.OtherRows.Count() > 1); }
+            get
+            {
+                return IsMultipleIteration();
+            }
         }
 
-        public List<CustomRowObject> OtherRows { get; set; }
+        public List<CustomRowObject> Rows { get; set; }
+        public CustomRowObject CurrentRow
+        {
+            get
+            {
+                return GetCurrentRow();
+            }
+        }
+        public List<CustomRowObject> OtherRows
+        {
+            get
+            {
+                return GetOtherRows();
+            }
+        }
+        protected virtual bool IsMultipleIteration()
+        {
+            return (this.Rows.FirstOrDefault(r => r.RowType == RowType.Other) != null);
+        }
+        protected virtual CustomRowObject GetCurrentRow()
+        {
+            return this.Rows.FirstOrDefault(r => r.RowType == RowType.Current);
+        }
+        protected virtual List<CustomRowObject> GetOtherRows()
+        {
+            return this.Rows.TakeWhile(r => r.RowType == RowType.Other).ToList();
+        }
 
         public CustomFormObject()
         {
-            this.OtherRows = new List<CustomRowObject>();
+            this.Rows = new List<CustomRowObject>();
         }
     }
 }
