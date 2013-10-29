@@ -70,5 +70,13 @@ namespace ScriptLinkMaster.Tests.TransformTests
             var result = transform.TransformToCustomFormObject(formObject);
             Assert.AreEqual(null, result.CurrentRow);
         }
+        [Test]
+        public void TransformToCustomFormObject_FormObjectWithOtherRows_ReturnsCustomFormWithOtherRows()
+        {
+            var transform = InitTransform();
+            var formObject = MockBasicFormObject();
+            var result = transform.TransformToCustomFormObject(formObject);
+            Assert.IsInstanceOf(typeof(List<CustomRowObject>), result.OtherRows);
+        }
     }
 }

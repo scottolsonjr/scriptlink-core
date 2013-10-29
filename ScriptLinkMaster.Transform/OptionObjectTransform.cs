@@ -28,7 +28,7 @@ namespace ScriptLinkMaster.Transform
         {
             if (IsErrorCodeValid((int)ErrorCode))
                 return (ErrorCode)ErrorCode;
-            throw new ArgumentException("The error code is not valid");
+            throw new ArgumentException("The Error Code is not valid.");
         }
         protected virtual bool IsErrorCodeValid(int ErrorCode)
         {

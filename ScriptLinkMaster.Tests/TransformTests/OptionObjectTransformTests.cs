@@ -55,7 +55,7 @@ namespace ScriptLinkMaster.Tests.TransformTests
                 optionObject.OptionUserId,
                 optionObject.SystemCode,
                 optionObject.EpisodeNumber,
-                (ErrorCode)optionObject.ErrorCode,
+                optionObject.ErrorCode,
             };
             var actual = new object[]
             {
@@ -67,7 +67,7 @@ namespace ScriptLinkMaster.Tests.TransformTests
                 result.OptionUserId,
                 result.SystemCode,
                 result.EpisodeNumber,
-                result.ErrorCode,
+                (double)result.ErrorCode,
             };
             Assert.AreEqual(expected, actual);
         }

@@ -73,6 +73,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TransformTests\FieldObjectTransformTests.cs" />
     <Compile Include="TransformTests\FormObjectTransformTests.cs" />
     <Compile Include="TransformTests\OptionObjectTransformTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
