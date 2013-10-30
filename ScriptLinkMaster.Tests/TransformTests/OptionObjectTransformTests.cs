@@ -31,6 +31,7 @@ namespace ScriptLinkMaster.Tests.TransformTests
             optionObject.SystemCode = "7";
             return optionObject;
         }
+
         [Test]
         public void TransformToCustomOptionObject_NonNullOptionObject_ReturnsCustomOptionObject()
         {
@@ -39,6 +40,7 @@ namespace ScriptLinkMaster.Tests.TransformTests
             CustomOptionObject result = transform.TransformToCustomOptionObject(optionObject);
             Assert.IsInstanceOf(typeof(CustomOptionObject), result);
         }
+
         [Test]
         public void TransformToCustomOptionObject_OptionObjectWithProperties_PropertyValuesAreEqual()
         {

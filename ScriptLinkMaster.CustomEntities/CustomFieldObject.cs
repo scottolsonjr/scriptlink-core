@@ -7,11 +7,51 @@ namespace ScriptLinkMaster.CustomEntities
 {
     public class CustomFieldObject
     {
-        public string FieldNumber { get; set; }
-        public string FieldValue { get; set; }
-        public LockedStatus LockedStatus { get; set; }
-        public RequiredStatus RequiredStatus { get; set; }
-        public EnabledStatus EnabledStatus { get; set; }
+        public string FieldNumber
+        {
+            get;
+            set
+            {
+                FieldNumber = value;
+                UpdateFieldState();
+            }
+        }
+        public string FieldValue
+        {
+            get;
+            set
+            {
+                FieldValue = value;
+                UpdateFieldState();
+            }
+        }
+        public LockedStatus LockedStatus
+        {
+            get;
+            set
+            {
+                LockedStatus = value;
+                UpdateFieldState();
+            }
+        }
+        public RequiredStatus RequiredStatus
+        {
+            get;
+            set
+            {
+                RequiredStatus = value;
+                UpdateFieldState();
+            }
+        }
+        public EnabledStatus EnabledStatus
+        {
+            get;
+            set
+            {
+                EnabledStatus = value;
+                UpdateFieldState();
+            }
+        }
         public FieldState FieldState { get; set; }
         public CustomFieldObject()
         {
@@ -19,6 +59,10 @@ namespace ScriptLinkMaster.CustomEntities
             LockedStatus = LockedStatus.Unlocked;
             RequiredStatus = RequiredStatus.Unrequired;
             EnabledStatus = EnabledStatus.Enabled;
+        }
+        protected virtual void UpdateFieldState()
+        {
+            this.FieldState = FieldState.Modified;
         }
     }
     public enum LockedStatus
