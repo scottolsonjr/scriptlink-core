@@ -7,48 +7,59 @@ namespace ScriptLinkMaster.CustomEntities
 {
     public class CustomFieldObject
     {
+        private string _FieldNumber;
+
         public string FieldNumber
         {
-            get;
+            get { return _FieldNumber; }
             set
             {
-                FieldNumber = value;
+                _FieldNumber = value;
                 UpdateFieldState();
             }
         }
+        private string _FieldValue;
+
         public string FieldValue
         {
-            get;
+            get { return _FieldValue; }
             set
             {
-                FieldValue = value;
+                _FieldValue = value;
                 UpdateFieldState();
             }
         }
+        private LockedStatus _LockedStatus;
+
         public LockedStatus LockedStatus
         {
-            get;
+            get { return _LockedStatus; }
             set
             {
-                LockedStatus = value;
+                _LockedStatus = value;
                 UpdateFieldState();
             }
         }
+        private RequiredStatus _RequiredStatus;
+
         public RequiredStatus RequiredStatus
         {
-            get;
+            get { return _RequiredStatus; }
             set
             {
-                RequiredStatus = value;
+                _RequiredStatus = value;
                 UpdateFieldState();
             }
         }
+
+        private EnabledStatus _EnabledStatus;
+
         public EnabledStatus EnabledStatus
         {
-            get;
+            get { return _EnabledStatus; }
             set
             {
-                EnabledStatus = value;
+                _EnabledStatus = value;
                 UpdateFieldState();
             }
         }

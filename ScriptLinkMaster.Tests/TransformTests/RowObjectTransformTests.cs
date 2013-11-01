@@ -102,5 +102,13 @@ namespace ScriptLinkMaster.Tests.TransformTests
             var result = transform.TransformToCustomRowObject(rowObject);
             Assert.AreEqual(RowType.Other, result.RowType);
         }
+        [Test]
+        public void TransformToCustomRowObject_NonNullFieldObjectList_ReturnsCustomFieldObjectList()
+        {
+            var transform = InitTransform();
+            var rowObject = MockBasicRowObject();
+            var result = transform.TransformToCustomRowObject(rowObject);
+            Assert.IsInstanceOf(typeof(List<CustomFieldObject>), result.Fields);
+        }
     }
 }
