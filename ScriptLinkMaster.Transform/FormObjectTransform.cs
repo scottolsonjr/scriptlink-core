@@ -13,12 +13,34 @@ namespace ScriptLinkMaster.Transform
         {
             var CustomFormObject = new CustomFormObject();
             CustomFormObject.FormId = formObject.FormId;
-            CustomFormObject.Rows = new List<CustomRowObject>();
-            if (formObject.MultipleIteration)
-                CustomFormObject.Rows.Add(new CustomRowObject { RowType = RowType.Other });
-            if (formObject.CurrentRow != null)
-                CustomFormObject.Rows.Add(new CustomRowObject { RowType = RowType.Current });
+            var tempRows = MergeRows(formObject.CurrentRow, formObject.OtherRows);
+            CustomFormObject.Rows = TransformRows(tempRows);
             return CustomFormObject;
+        }
+
+        private List<CustomRowObject> TransformRows(List<RowObject> tempRows)
+        {
+            var customRows = new List<CustomRowObject>();
+            foreach (var row in tempRows)
+            {
+                customRows.Add(TransformRow(row));
+            }
+            return customRows;
+        }
+
+        private CustomRowObject TransformRow(RowObject row)
+        {
+            return new RowObjectTransform().TransformToCustomRowObject(row);
+        }
+
+        protected virtual List<RowObject> MergeRows(RowObject rowObject, List<RowObject> list)
+        {
+            var newRows = new List<RowObject>();
+            if (rowObject == null)
+                return newRows;
+            newRows.Add(rowObject);
+            newRows.AddRange(list);
+            return newRows;
         }
     }
 }

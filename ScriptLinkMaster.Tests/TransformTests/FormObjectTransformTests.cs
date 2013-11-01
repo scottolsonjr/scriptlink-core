@@ -22,11 +22,28 @@ namespace ScriptLinkMaster.Tests.TransformTests
             formObject.MultipleIteration = false;
             return formObject;
         }
-        private FormObject InitCurrentRow(FormObject formObject)
+        private void InitCurrentRow(FormObject formObject)
         {
             formObject.CurrentRow = new RowObject();
-            return formObject;
         }
+        private void AddRowObjects(FormObject formObject, int NumberOfRows)
+        {
+            for (int i = 0; i < NumberOfRows; i++)
+            {
+                if (i == 0)
+                    InitCurrentRow(formObject);
+                else
+                    formObject.OtherRows.Add(CreateRowObject());
+            }
+        }
+
+        private RowObject CreateRowObject()
+        {
+            var rowObject = new RowObject();
+            return rowObject;
+        }
+
+
         [Test]
         public void TransformToCustomFormObject_NonNullFormObject_ReturnsCustomFormObject()
         {
@@ -78,5 +95,20 @@ namespace ScriptLinkMaster.Tests.TransformTests
             var result = transform.TransformToCustomFormObject(formObject);
             Assert.IsInstanceOf(typeof(List<CustomRowObject>), result.OtherRows);
         }
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(3)]
+        [TestCase(4)]
+        public void TransformToCustomFormObject_NonEmptyCurrentRowAndOtherRows_ReturnsCustomFormObjectWithSameNumberOfElements(int NumberOfRows)
+        {
+            var transform = InitTransform();
+            var formObject = MockBasicFormObject();
+            AddRowObjects(formObject, NumberOfRows);
+            var result = transform.TransformToCustomFormObject(formObject);
+            Assert.AreEqual(NumberOfRows, result.Rows.Count());
+        }
+
+
     }
 }

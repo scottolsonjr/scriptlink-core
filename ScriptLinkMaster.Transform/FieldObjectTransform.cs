@@ -65,10 +65,17 @@ namespace ScriptLinkMaster.Transform
         private int GetNumericValue(string p)
         {
             int number;
+            if (String.IsNullOrEmpty(p))
+                return DefaultNumericValue();
             bool result = Int32.TryParse(p, out number);
             if (result)
                 return number;
-            throw new ArgumentException(String.Format("Unabled to part {0} into an int. {0} is not a valid value.", p));
+            throw new ArgumentException(String.Format("Unabled to parse {0} into an int. {0} is not a valid value.", p));
+        }
+
+        private int DefaultNumericValue()
+        {
+            return 0;
         }
     }
 }
