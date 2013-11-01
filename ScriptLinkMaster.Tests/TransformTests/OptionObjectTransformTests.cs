@@ -32,6 +32,19 @@ namespace ScriptLinkMaster.Tests.TransformTests
             return optionObject;
         }
 
+
+        private void AddFormObjects(OptionObject optionObject, int NumberOfForms)
+        {
+            for (int i = 0; i < NumberOfForms; i++)
+            {
+                optionObject.Forms.Add(CreateFormObject());
+            }
+        }
+
+        private FormObject CreateFormObject()
+        {
+            return new FormObject();
+        }
         [Test]
         public void TransformToCustomOptionObject_NonNullOptionObject_ReturnsCustomOptionObject()
         {
@@ -89,6 +102,19 @@ namespace ScriptLinkMaster.Tests.TransformTests
             var transform = InitTransform();
             var result = transform.TransformToCustomOptionObject(optionObject);
             Assert.IsInstanceOf(typeof(List<CustomFormObject>), result.Forms);
+        }
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(3)]
+        [TestCase(4)]
+        public void TransformToCustomOptionObject_NonEmptyFormObjectList_ReturnsCustomFormObjectListWithSameNumberOfElements(int NumberOfForms)
+        {
+            var transform = InitTransform();
+            var optionObject = MockBasicOptionObject();
+            AddFormObjects(optionObject, NumberOfForms);
+            var result = transform.TransformToCustomOptionObject(optionObject);
+            Assert.AreEqual(NumberOfForms, result.Forms.Count());
         }
     }
 }

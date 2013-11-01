@@ -39,8 +39,7 @@ namespace ScriptLinkMaster.Tests.TransformTests
 
         private RowObject CreateRowObject()
         {
-            var rowObject = new RowObject();
-            return rowObject;
+            return new RowObject();
         }
 
 
@@ -108,7 +107,5 @@ namespace ScriptLinkMaster.Tests.TransformTests
             var result = transform.TransformToCustomFormObject(formObject);
             Assert.AreEqual(NumberOfRows, result.Rows.Count());
         }
-
-
     }
 }

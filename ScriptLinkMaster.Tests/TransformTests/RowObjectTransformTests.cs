@@ -57,8 +57,7 @@ namespace ScriptLinkMaster.Tests.TransformTests
 
         private FieldObject CreateFieldObject()
         {
-            var fieldObject = new FieldObject();
-            return fieldObject;
+            return new FieldObject();
         }
         [Test]
         public void TransformToCustomRowObject_NonNullRowObject_ReturnsCustomRowObject()

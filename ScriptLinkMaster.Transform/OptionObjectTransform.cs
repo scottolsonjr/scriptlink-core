@@ -22,7 +22,23 @@ namespace ScriptLinkMaster.Transform
             CustomOptionObject.OptionStaffId = optionObject.OptionStaffId;
             CustomOptionObject.OptionUserId = optionObject.OptionUserId;
             CustomOptionObject.SystemCode = optionObject.SystemCode;
+            CustomOptionObject.Forms = TransformForms(optionObject.Forms);
             return CustomOptionObject;
+        }
+
+        protected virtual List<CustomFormObject> TransformForms(List<FormObject> list)
+        {
+            var customForms = new List<CustomFormObject>();
+            foreach (var form in list)
+            {
+                customForms.Add(TransformForm(form));
+            }
+            return customForms;
+        }
+
+        protected virtual CustomFormObject TransformForm(FormObject form)
+        {
+            return new FormObjectTransform().TransformToCustomFormObject(form);
         }
         protected virtual ErrorCode ConvertToEnum(double ErrorCode)
         {
