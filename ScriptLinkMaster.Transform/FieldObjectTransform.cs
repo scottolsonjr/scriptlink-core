@@ -62,7 +62,7 @@ namespace ScriptLinkMaster.Transform
         {
             return String.Format("{0} is not a valid value for {1} enum type.", value, myEnum);
         }
-        private int GetNumericValue(string p)
+        protected virtual int GetNumericValue(string p)
         {
             int number;
             if (String.IsNullOrEmpty(p))
@@ -73,7 +73,7 @@ namespace ScriptLinkMaster.Transform
             throw new ArgumentException(String.Format("Unabled to parse {0} into an int. {0} is not a valid value.", p));
         }
 
-        private int DefaultNumericValue()
+        protected virtual int DefaultNumericValue()
         {
             return 0;
         }

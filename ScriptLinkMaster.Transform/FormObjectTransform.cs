@@ -18,7 +18,7 @@ namespace ScriptLinkMaster.Transform
             return CustomFormObject;
         }
 
-        private List<CustomRowObject> TransformRows(List<RowObject> tempRows)
+        protected virtual List<CustomRowObject> TransformRows(List<RowObject> tempRows)
         {
             var customRows = new List<CustomRowObject>();
             foreach (var row in tempRows)
@@ -28,7 +28,7 @@ namespace ScriptLinkMaster.Transform
             return customRows;
         }
 
-        private CustomRowObject TransformRow(RowObject row)
+        protected virtual CustomRowObject TransformRow(RowObject row)
         {
             return new RowObjectTransform().TransformToCustomRowObject(row);
         }
