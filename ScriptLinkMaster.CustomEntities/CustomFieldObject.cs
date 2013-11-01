@@ -66,10 +66,10 @@ namespace ScriptLinkMaster.CustomEntities
         public FieldState FieldState { get; set; }
         public CustomFieldObject()
         {
-            FieldState = FieldState.Unchanged;
             LockedStatus = LockedStatus.Unlocked;
             RequiredStatus = RequiredStatus.Unrequired;
             EnabledStatus = EnabledStatus.Enabled;
+            FieldState = FieldState.Unchanged;
         }
         protected virtual void UpdateFieldState()
         {
