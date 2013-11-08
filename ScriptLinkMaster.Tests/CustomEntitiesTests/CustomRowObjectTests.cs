@@ -8,6 +8,7 @@ using ScriptLinkMaster.Entities;
 
 namespace ScriptLinkMaster.Tests.CustomEntitiesTests
 {
+    [TestFixture]
     public class CustomRowObjectTests
     {
         private CustomRowObject MockBasicCustomRowObject()

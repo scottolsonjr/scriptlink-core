@@ -73,6 +73,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomEntitiesTests\CustomFormObjectTests.cs" />
     <Compile Include="CustomEntitiesTests\CustomRowObjectTests.cs" />
     <Compile Include="TransformTests\FieldObjectTransformTests.cs" />
     <Compile Include="TransformTests\FormObjectTransformTests.cs" />

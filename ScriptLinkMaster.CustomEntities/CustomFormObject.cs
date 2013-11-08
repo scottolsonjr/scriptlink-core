@@ -44,6 +44,10 @@ namespace ScriptLinkMaster.CustomEntities
         {
             return this.Rows.TakeWhile(r => r.RowType == RowType.Other).ToList();
         }
+        public void RemoveEmptyRows()
+        {
+            Rows.RemoveAll(r => !r.Fields.Any());
+        }
         public CustomFormObject()
         {
             this.Rows = new List<CustomRowObject>();

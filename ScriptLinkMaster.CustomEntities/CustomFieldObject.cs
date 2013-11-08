@@ -92,8 +92,7 @@ namespace ScriptLinkMaster.CustomEntities
             CustomFieldObject customFieldObject = obj as CustomFieldObject;
             if (customFieldObject == null)
                 return false;
-            else
-                return this.Equals(customFieldObject);
+            return this.Equals(customFieldObject);
         }
         public override int GetHashCode()
         {
