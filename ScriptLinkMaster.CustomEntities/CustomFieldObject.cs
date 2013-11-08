@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ScriptLinkMaster.CustomEntities
 {
-    public class CustomFieldObject
+    public class CustomFieldObject : IEquatable<CustomFieldObject>
     {
         private string _FieldNumber;
 
@@ -74,6 +74,37 @@ namespace ScriptLinkMaster.CustomEntities
         protected virtual void UpdateFieldState()
         {
             this.FieldState = FieldState.Modified;
+        }
+
+        public bool Equals(CustomFieldObject other)
+        {
+            if (other == null)
+                return false;
+            return this.FieldState == other.FieldState &&
+                this.FieldValue == other.FieldValue &&
+                this.RequiredStatus == other.RequiredStatus &&
+                this.EnabledStatus == other.EnabledStatus &&
+                this.FieldNumber == other.FieldNumber &&
+                this.LockedStatus == other.LockedStatus;
+        }
+        public override bool Equals(object obj)
+        {
+            CustomFieldObject customFieldObject = obj as CustomFieldObject;
+            if (customFieldObject == null)
+                return false;
+            else
+                return this.Equals(customFieldObject);
+        }
+        public override int GetHashCode()
+        {
+            int hash = 17;
+            hash = hash * 23 + FieldState.GetHashCode();
+            hash = hash * 23 + FieldValue.GetHashCode();
+            hash = hash * 23 + RequiredStatus.GetHashCode();
+            hash = hash * 23 + EnabledStatus.GetHashCode();
+            hash = hash * 23 + FieldNumber.GetHashCode();
+            hash = hash * 23 + LockedStatus.GetHashCode();
+            return hash;
         }
     }
     public enum LockedStatus

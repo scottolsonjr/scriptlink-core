@@ -9,6 +9,7 @@ using ScriptLinkMaster.Transform;
 
 namespace ScriptLinkMaster.Tests.TransformTests
 {
+    [TestFixture]
     public class FieldObjectTransformTests
     {
         private FieldObjectTransform InitTransform()

@@ -16,6 +16,10 @@ namespace ScriptLinkMaster.CustomEntities
         {
             this.Fields = new List<CustomFieldObject>();
         }
+        public void RemoveUnchangedFields()
+        {
+            Fields.RemoveAll(f => f.FieldState == FieldState.Unchanged);
+        }
     }
     public enum RowType
     {

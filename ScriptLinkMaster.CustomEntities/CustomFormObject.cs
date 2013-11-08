@@ -44,7 +44,6 @@ namespace ScriptLinkMaster.CustomEntities
         {
             return this.Rows.TakeWhile(r => r.RowType == RowType.Other).ToList();
         }
-
         public CustomFormObject()
         {
             this.Rows = new List<CustomRowObject>();
