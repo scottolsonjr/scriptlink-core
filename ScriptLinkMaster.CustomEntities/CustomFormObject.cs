@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ScriptLinkMaster.CustomEntities
 {
-    public class CustomFormObject
+    public class CustomFormObject : IEquatable<CustomFormObject>
     {
         public string FormId { get; set; }
 
@@ -51,6 +51,48 @@ namespace ScriptLinkMaster.CustomEntities
         public CustomFormObject()
         {
             this.Rows = new List<CustomRowObject>();
+        }
+
+        public bool Equals(CustomFormObject other)
+        {
+            if (other == null)
+                return false;
+            return this.FormId == other.FormId &&
+                this.MultipleIteration == other.MultipleIteration &&
+                this.CurrentRow.Equals(other.CurrentRow) &&
+                AreRowsEqual(this.OtherRows, other.OtherRows);
+        }
+        private bool AreRowsEqual(List<CustomRowObject> list1, List<CustomRowObject> list2)
+        {
+            if (!AreBothNull(list1, list2) && AreBothEmpty(list1, list2))
+                return true;
+            return list1.Equals(list2);
+        }
+
+        private bool AreBothEmpty(List<CustomRowObject> list1, List<CustomRowObject> list2)
+        {
+            return (!list1.Any() && !list2.Any());
+        }
+
+        private bool AreBothNull(List<CustomRowObject> list1, List<CustomRowObject> list2)
+        {
+            return (list1 == null && list2 == null);
+        }
+        public override bool Equals(object obj)
+        {
+            CustomFormObject customFormObject = obj as CustomFormObject;
+            if (customFormObject == null)
+                return false;
+            return this.Equals(customFormObject);
+        }
+        public override int GetHashCode()
+        {
+            int hash = 17;
+            hash = hash * 23 + FormId.GetHashCode();
+            hash = hash * 23 + MultipleIteration.GetHashCode();
+            hash = hash * 23 + CurrentRow.GetHashCode();
+            hash = hash * 23 + OtherRows.GetHashCode();
+            return hash;
         }
     }
 }

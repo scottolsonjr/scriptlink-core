@@ -29,9 +29,26 @@ namespace ScriptLinkMaster.CustomEntities
                 this.RowAction == other.RowAction &&
                 this.RowId == other.RowId &&
                 this.RowType == other.RowType &&
-                this.Fields == this.Fields;
-
+                AreFieldsEqual(this.Fields, other.Fields);
         }
+
+        private bool AreFieldsEqual(List<CustomFieldObject> list1, List<CustomFieldObject> list2)
+        {
+            if (!AreBothNull(list1, list2) && AreBothEmpty(list1, list2))
+                return true;
+            return list1.Equals(list2);
+        }
+
+        private bool AreBothEmpty(List<CustomFieldObject> list1, List<CustomFieldObject> list2)
+        {
+            return (!list1.Any() && !list2.Any());
+        }
+
+        private bool AreBothNull(List<CustomFieldObject> list1, List<CustomFieldObject> list2)
+        {
+            return (list1 == null && list2 == null);
+        }
+
         public override bool Equals(object obj)
         {
             CustomRowObject customRowObject = obj as CustomRowObject;
