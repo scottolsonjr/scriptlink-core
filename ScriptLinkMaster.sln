@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptLinkMaster.Entities",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptLinkMaster.Main", "ScriptLinkMaster.Main\ScriptLinkMaster.Main.csproj", "{22F5E077-B796-4D04-9362-4F70B36B1ACC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptLinkMaster.RequestHandler", "ScriptLinkMaster.RequestHandler\ScriptLinkMaster.RequestHandler.csproj", "{316D3A37-FAE1-490E-BA76-702B41470166}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{22F5E077-B796-4D04-9362-4F70B36B1ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22F5E077-B796-4D04-9362-4F70B36B1ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22F5E077-B796-4D04-9362-4F70B36B1ACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{316D3A37-FAE1-490E-BA76-702B41470166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{316D3A37-FAE1-490E-BA76-702B41470166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{316D3A37-FAE1-490E-BA76-702B41470166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{316D3A37-FAE1-490E-BA76-702B41470166}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
