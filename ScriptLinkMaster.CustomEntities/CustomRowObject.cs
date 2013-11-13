@@ -36,7 +36,16 @@ namespace ScriptLinkMaster.CustomEntities
         {
             if (!AreBothNull(list1, list2) && AreBothEmpty(list1, list2))
                 return true;
-            return list1.Equals(list2);
+            if (list1.Count != list2.Count)
+                return false;
+            for (int i = 0; i < list1.Count; i++)
+            {
+                if (!list1[i].Equals(list2[i]))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         private bool AreBothEmpty(List<CustomFieldObject> list1, List<CustomFieldObject> list2)
@@ -63,7 +72,10 @@ namespace ScriptLinkMaster.CustomEntities
             hash = hash * 23 + RowAction.GetHashCode();
             hash = hash * 23 + RowId.GetHashCode();
             hash = hash * 23 + RowType.GetHashCode();
-            hash = hash * 23 + Fields.GetHashCode();
+            foreach (var field in this.Fields)
+            {
+                hash = hash * 23 + field.GetHashCode();
+            }
             return hash;
         }
     }
