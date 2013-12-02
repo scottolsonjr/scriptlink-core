@@ -67,7 +67,7 @@ namespace ScriptLinkMaster.CustomEntities
         public CustomFieldObject()
         {
             LockedStatus = LockedStatus.Unlocked;
-            RequiredStatus = RequiredStatus.Unrequired;
+            RequiredStatus = RequiredStatus.NotRequired;
             EnabledStatus = EnabledStatus.Enabled;
             FieldState = FieldState.Unchanged;
         }
@@ -113,7 +113,7 @@ namespace ScriptLinkMaster.CustomEntities
     }
     public enum RequiredStatus
     {
-        Unrequired = 0,
+        NotRequired = 0,
         Required = 1
     }
     public enum EnabledStatus

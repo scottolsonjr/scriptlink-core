@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomFieldObjectTransform.cs" />
+    <Compile Include="CustomRowObjectTransform.cs" />
     <Compile Include="FieldObjectTransform.cs" />
     <Compile Include="FormObjectTransform.cs" />
     <Compile Include="OptionObjectTransform.cs" />

@@ -76,6 +76,8 @@
     <Compile Include="CustomEntitiesTests\CustomFormObjectTests.cs" />
     <Compile Include="CustomEntitiesTests\CustomOptionObjectTests.cs" />
     <Compile Include="CustomEntitiesTests\CustomRowObjectTests.cs" />
+    <Compile Include="TransformTests\CustomFieldObjectTransformTests.cs" />
+    <Compile Include="TransformTests\CustomRowObjectTransformTests.cs" />
     <Compile Include="TransformTests\FieldObjectTransformTests.cs" />
     <Compile Include="TransformTests\FormObjectTransformTests.cs" />
     <Compile Include="TransformTests\OptionObjectTransformTests.cs" />
