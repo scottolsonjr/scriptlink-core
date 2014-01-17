@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomFieldObjectTransform.cs" />
+    <Compile Include="CustomFormObjectTransform.cs" />
     <Compile Include="CustomRowObjectTransform.cs" />
     <Compile Include="FieldObjectTransform.cs" />
     <Compile Include="FormObjectTransform.cs" />

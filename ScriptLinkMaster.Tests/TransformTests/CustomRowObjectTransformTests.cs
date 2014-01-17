@@ -65,5 +65,18 @@ namespace ScriptLinkMaster.Tests.TransformTests
             };
             Assert.AreEqual(expected, actual);
         }
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(3)]
+        [TestCase(4)]
+        public void TransformToRowObject_NonNullCustomFieldObjectList_ReturnsCustomRowObjectWithCustomFieldListWithSameNumberOfElements(int NumberOfFields)
+        {
+            var transform = InitTransform();
+            var rowObject = MockBasicCustomRowObject();
+            AddCustomFieldObjects(rowObject, NumberOfFields);
+            var result = transform.TransformToRowObject(rowObject);
+            Assert.AreEqual(NumberOfFields, result.Fields.Count);
+        }
     }
 }
