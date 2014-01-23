@@ -14,12 +14,12 @@ namespace ScriptLinkMaster.Transform
             var rowObject = new RowObject();
             rowObject.ParentRowId = customRowObject.ParentRowId;
             rowObject.RowId = customRowObject.RowId;
-            rowObject.RowAction = customRowObject.RowAction.Value;
-            rowObject.Fields = TransformFields(customRowObject.Fields);
+            rowObject.RowAction = customRowObject.RowAction == null ? null : customRowObject.RowAction.Value;
+            rowObject.Fields = TransformCustomFields(customRowObject.Fields);
             return rowObject;
         }
 
-        protected virtual List<FieldObject> TransformFields(List<CustomFieldObject> list)
+        protected virtual List<FieldObject> TransformCustomFields(List<CustomFieldObject> list)
         {
             var fields = new List<FieldObject>();
             foreach (var customField in list)
