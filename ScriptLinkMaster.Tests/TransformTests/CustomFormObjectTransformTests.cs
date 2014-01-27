@@ -63,7 +63,7 @@ namespace ScriptLinkMaster.Tests.TransformTests
                 result.CurrentRow,
                 result.OtherRows
             };
-            Assert.AreEqual(expected, actual);
+            CollectionAssert.AreEqual(expected, actual);
         }
         [Test]
         public void TransformToFormObject_CustomFormObjectWithCurrentRow_ReturnsFormObjectWithCurrentRow()
