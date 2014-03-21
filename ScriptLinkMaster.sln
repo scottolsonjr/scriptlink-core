@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptLinkMaster.Main", "Sc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptLinkMaster.RequestHandler", "ScriptLinkMaster.RequestHandler\ScriptLinkMaster.RequestHandler.csproj", "{316D3A37-FAE1-490E-BA76-702B41470166}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptLinkMaster.Scripts", "ScriptLinkMaster.Scripts\ScriptLinkMaster.Scripts.csproj", "{81922311-9E3C-4EA1-A525-69610E66E852}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EA745418-11BC-46EC-B060-E458809BBD11} = {EA745418-11BC-46EC-B060-E458809BBD11}
+		{DB2F72B3-6C93-438A-8438-2F181050C131} = {DB2F72B3-6C93-438A-8438-2F181050C131}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +49,10 @@ Global
 		{316D3A37-FAE1-490E-BA76-702B41470166}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{316D3A37-FAE1-490E-BA76-702B41470166}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{316D3A37-FAE1-490E-BA76-702B41470166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81922311-9E3C-4EA1-A525-69610E66E852}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81922311-9E3C-4EA1-A525-69610E66E852}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81922311-9E3C-4EA1-A525-69610E66E852}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81922311-9E3C-4EA1-A525-69610E66E852}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

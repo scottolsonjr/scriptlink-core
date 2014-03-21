@@ -86,5 +86,18 @@ namespace ScriptLinkMaster.Tests.TransformTests
             };
             CollectionAssert.AreEqual(expected, actual);
         }
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(3)]
+        [TestCase(4)]
+        public void TransformOptionObject_CustomOptionObjectWithXForms_ReturnsOptionObjectWithSameAmountOfForms(int NumberOfForms)
+        {
+            var transform = InitTransform();
+            var customOptionObject = MockBasicCustomOptionObject();
+            AddCustomFormObject(customOptionObject, NumberOfForms);
+            var result = transform.TransformToOptionObject(customOptionObject);
+            Assert.AreEqual(NumberOfForms, result.Forms.Count());
+        }
     }
 }

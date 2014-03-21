@@ -21,7 +21,23 @@ namespace ScriptLinkMaster.Transform
             optionObject.OptionStaffId = customOptionObject.OptionStaffId;
             optionObject.OptionUserId = customOptionObject.OptionUserId;
             optionObject.SystemCode = customOptionObject.SystemCode;
+            optionObject.Forms = customOptionObject.Forms.Any() ? TransformCustomForms(customOptionObject.Forms) : new List<FormObject>();
             return optionObject;
+        }
+
+        protected virtual List<FormObject> TransformCustomForms(List<CustomFormObject> list)
+        {
+            var forms = new List<FormObject>();
+            foreach (var customForm in list)
+            {
+                forms.Add(TransformCustomForm(customForm));
+            }
+            return forms;
+        }
+
+        protected virtual FormObject TransformCustomForm(CustomFormObject customForm)
+        {
+            return new CustomFormObjectTransform().TransformToFormObject(customForm);
         }
     }
 }
