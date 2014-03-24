@@ -54,6 +54,10 @@
       <Project>{db2f72b3-6c93-438a-8438-2f181050c131}</Project>
       <Name>ScriptLinkMaster.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ScriptLinkMaster.Transform\ScriptLinkMaster.Transform.csproj">
+      <Project>{ce3ddf87-706c-45e6-ac0b-8863557c5347}</Project>
+      <Name>ScriptLinkMaster.Transform</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

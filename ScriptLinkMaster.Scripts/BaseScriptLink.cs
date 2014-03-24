@@ -1,4 +1,6 @@
-﻿using ScriptLinkMaster.Entities;
+﻿using ScriptLinkMaster.CustomEntities;
+using ScriptLinkMaster.Entities;
+using ScriptLinkMaster.Transform;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +11,21 @@ namespace ScriptLinkMaster.Scripts
 {
     public abstract class BaseScriptLink
     {
-        protected OptionObject OptionObject;
-        public BaseScriptLink(OptionObject optionObject)
+        private OptionObject OptionObject;
+        private OptionObjectTransform OptionObjectTransform;
+
+        protected CustomOptionObject CustomOptionObject
+        {
+            get
+            {
+                return this.CustomOptionObject ?? this.OptionObjectTransform.TransformToCustomOptionObject(this.OptionObject);
+            }
+        }
+        public BaseScriptLink(OptionObject optionObject, OptionObjectTransform optionObjectTransform)
         {
             this.OptionObject = optionObject;
+            this.OptionObjectTransform = optionObjectTransform;
         }
+
     }
 }
