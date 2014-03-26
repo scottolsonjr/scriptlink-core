@@ -99,6 +99,11 @@ namespace ScriptLinkMaster.CustomEntities
         {
             return (list1 == null && list2 == null);
         }
+
+        public void MakeFieldsRequired(List<string> fieldNumberList)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public enum ErrorCode

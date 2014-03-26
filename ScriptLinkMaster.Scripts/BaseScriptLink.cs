@@ -21,11 +21,21 @@ namespace ScriptLinkMaster.Scripts
                 return this.CustomOptionObject ?? this.OptionObjectTransform.TransformToCustomOptionObject(this.OptionObject);
             }
         }
-        public BaseScriptLink(OptionObject optionObject, OptionObjectTransform optionObjectTransform)
+
+        protected BaseScriptLink(OptionObject optionObject)
         {
             this.OptionObject = optionObject;
-            this.OptionObjectTransform = optionObjectTransform;
+            this.OptionObjectTransform = new OptionObjectTransform();
         }
 
+        protected void MakeFieldsRequired(List<FieldObject> fieldList)
+        {
+            MakeFieldsRequired(fieldList.Select(f => f.FieldNumber).ToList());
+        }
+
+        protected void MakeFieldsRequired(List<string> fieldNumberList)
+        {
+            this.CustomOptionObject.MakeFieldsRequired(fieldNumberList);
+        }
     }
 }

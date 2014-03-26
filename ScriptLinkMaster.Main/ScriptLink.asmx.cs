@@ -27,6 +27,8 @@ namespace ScriptLinkMaster.Main
         [WebMethod]
         public OptionObject RunScript(OptionObject OptionObject, string ScriptName)
         {
+            var script = FactoryScriptName.GetScriptName(ScriptName);
+            script.PerformAction();
             return OptionObject;
         }
     }
