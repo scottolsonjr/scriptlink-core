@@ -3,6 +3,7 @@ ScriptLink Core
 
 ScriptLink Core is a C# framework support the creation of Netsmart Avatar ScriptLink-compatible SOAP Web Services. This Class Library code would be compiled into a DLL and imported into your ScriptLink Project.
 
+This project has been migrated to a new project, [ScriptLinkStandard](https://rcskids.github.io/ScriptLinkStandard/). Numerous improvements and enhancements were made in this updated project.
 
 Project Goals
 =============
