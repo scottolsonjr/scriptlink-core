@@ -1,9 +1,11 @@
-ScriptLink Core
+ScriptLink Core (Retired)
 ===============
+
+**Check out the [updated project site](https://rarelysimple.github.io/RarelySimple.AvatarScriptLink/) and [repository](https://github.com/rarelysimple/RarelySimple.AvatarScriptLink)!**
 
 ScriptLink Core is a C# framework support the creation of Netsmart Avatar ScriptLink-compatible SOAP Web Services. This Class Library code would be compiled into a DLL and imported into your ScriptLink Project.
 
-This project has been migrated to a new project, [ScriptLinkStandard](https://rcskids.github.io/ScriptLinkStandard/). Numerous improvements and enhancements were made in this updated project.
+This project has been migrated to a new project, [RarelySimple.AvatarScriptLink](https://rarelysimple.github.io/RarelySimple.AvatarScriptLink/). Numerous fixes, improvements, and enhancements are included in this new project.
 
 Project Goals
 =============
